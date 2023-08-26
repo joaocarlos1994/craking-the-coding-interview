@@ -24,7 +24,7 @@ public class Exercise04PalindromePermutation {
         Map<String, Integer> aux = new HashMap<>();
         for (int i = 0; i < word.length(); i++) {
             char letter = word.charAt(i);
-            if (letter == ' ') {
+            if (!Character.isLetter(letter)) {
                 continue;
             }
 
