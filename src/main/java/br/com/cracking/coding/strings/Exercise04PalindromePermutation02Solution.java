@@ -14,10 +14,23 @@ public class Exercise04PalindromePermutation02Solution {
      * */
 
     public static void main(String[] args) {
-        String word = "Tact Coa";
-        //String word2 = "tactcoapapa";
-        Assertions.assertEquals(true, isPalindromePermutation(word));
-        //Assertions.assertEquals(true, isPalindromePermutation(word2));
+        String[] strings = {"Rats live on no evil star",
+                "A man, a plan, a canal, panama",
+                "Lleve",
+                "Tacotac",
+                "asda"};
+        for (String s : strings) {
+            boolean a = isPalindromePermutation(s);
+            boolean b = isPalindromePermutation(s);
+            boolean c = isPalindromePermutation(s);
+            System.out.println(s);
+            if (a == b && b == c) {
+                System.out.println("Agree: " + a);
+            } else {
+                System.out.println("Disagree: " + a + ", " + b + ", " + c);
+            }
+            System.out.println();
+        }
     }
 
     public static boolean isPalindromePermutation(final String word) {

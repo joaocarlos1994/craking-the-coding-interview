@@ -16,8 +16,12 @@ public class Exercise04PalindromePermutation {
     public static void main(String[] args) {
         String word = "Tact Coa";
         String word2 = "tactcoapapa";
+        String word3 = "Rats live on no evil star";
+        String word4 = "A man, a plan, a canal, panama";
         Assertions.assertEquals(true, isPalindromePermutation(word));
         Assertions.assertEquals(true, isPalindromePermutation(word2));
+        Assertions.assertEquals(true, isPalindromePermutation(word3));
+        Assertions.assertEquals(true, isPalindromePermutation(word4));
     }
 
     public static boolean isPalindromePermutation(final String word) {
