@@ -2,15 +2,12 @@ package br.com.cracking.coding.strings;
 
 import org.junit.jupiter.api.Assertions;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * There are three types of edits that can be performed one string: insert a character, remove a
  * character, or replace a character. Given two strings, write a function to check if they are
  * one edit (or zero edits) away.
  */
-public class Exercise05EditDistanceLeetCode {
+public class Exercise05OneWayEditDistanceLeetCode {
     public static void main(String[] args) {
         int i = minDistance("horse", "ros");
         int j = minDistance("intention", "execution");
