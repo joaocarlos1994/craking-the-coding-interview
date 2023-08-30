@@ -4,20 +4,21 @@ import org.junit.jupiter.api.Assertions;
 
 /**
  *
- * */
+ */
 public class Exercise06StringCompression {
     public static void main(String[] args) {
-        String a = "pale";
+        String a = "aaaaabbbbaaaabbddc";
         String compress = compress(a);
-        Assertions.assertEquals("pale", compress);
+        Assertions.assertEquals("a5b4a4b2d2c1", compress);
     }
 
     public static String compress(final String str) {
         StringBuilder compressed = new StringBuilder();
         int countConsecutive = 0;
-        for (int i = 0;  i < str.length(); i++) {
+        for (int i = 0; i < str.length(); i++) {
             countConsecutive++;
-            if (i + 1 >= str.length() || str.charAt(i) != str.charAt(i+ 1)) {
+
+            if (i + 1 >= str.length() || str.charAt(i) != str.charAt(i + 1)) {
                 compressed.append(str.charAt(i));
                 compressed.append(countConsecutive);
                 countConsecutive = 0;
