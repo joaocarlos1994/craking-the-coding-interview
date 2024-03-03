@@ -3,7 +3,9 @@ package br.com.cracking.coding.linkedlists;
 import org.junit.jupiter.api.Assertions;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Exercise01RemoveDups {
 
@@ -15,18 +17,21 @@ public class Exercise01RemoveDups {
      * */
 
     public static void main(String[] args) {
-        Assertions.assertTrue(isUnique(new int[]{11, 1, 2, 3, 7, 10}));
-        Assertions.assertFalse(isUnique(new int[]{11, 1, 3, 3, 7, 10}));
+        deleteDups(new ListNode(1));
+        deleteDups(new ListNode(2));
     }
 
-    public static boolean isUnique(final int[] nums) {
-        Map<Integer, Boolean> uniques = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (uniques.get(nums[i]) != null) {
-                return true;
+    public static void deleteDups(ListNode node) {
+        Set<Integer> numbers = new HashSet<>();
+        ListNode previous = null;
+        while (node != null) {
+            if (numbers.contains(node.val)) {
+                previous.next = node.next;
+            } else {
+                numbers.add(node.val);
+                previous = node;
             }
-            uniques.put(nums[i], Boolean.TRUE);
+            node = node.next;
         }
-        return false;
     }
 }
