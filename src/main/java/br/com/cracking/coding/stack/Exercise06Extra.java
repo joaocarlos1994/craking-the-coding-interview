@@ -19,43 +19,25 @@ public class Exercise06Extra {
     //Output: false
     //Explanation: 1 cannot be popped before 2.
 
-    public String decodeString(String s) {
-        Stack<Character> stack = new Stack<Character>();
-        StringBuilder aux = new StringBuilder();
-        for (final char letter : s.toCharArray()) {
-            if (']' == letter) {
-                while(!stack.isEmpty() && stack.peek() != '[') {
-                    aux.append(stack.pop());
-                }
-
-                if (!stack.isEmpty() && stack.peek() == '[') {
-                    stack.pop();
-                }
-
-                final StringBuilder numbers = new StringBuilder();
-                while(!stack.isEmpty() && Character.isDigit(stack.peek())) {
-                    numbers.append(stack.pop());
-                }
-
-                int k = Integer.parseInt(numbers.reverse().toString());
-                String reverseString = aux.reverse().toString();
-                for (int i = 0; i < k; i++) {
-                    for (char c : reverseString.toCharArray()) {
-                        stack.push(c);
+    public boolean validateStackSequences(int[] pushed, int[] popped) {
+        Stack<Integer> stack = new Stack<Integer>();
+        int i = 0;
+        for (int pushNumber : pushed) {
+            stack.push(pushNumber);
+            int popNumber = popped[i];
+            if (pushNumber == popNumber) {
+                stack.pop();
+                i++;
+                while (i < popped.length) {
+                    if (!stack.isEmpty() && popped[i] == stack.peek()) {
+                        stack.pop();
+                        i++;
+                    } else {
+                        break;
                     }
                 }
-                aux = new StringBuilder();
-            }
-            stack.push(letter);
-        }
-
-        final StringBuilder result = new StringBuilder();
-        while(!stack.isEmpty()) {
-            char letter = stack.pop();
-            if (Character.isLetter(letter)) {
-                result.append(letter);
             }
         }
-        return result.reverse().toString();
+        return stack.isEmpty();
     }
 }

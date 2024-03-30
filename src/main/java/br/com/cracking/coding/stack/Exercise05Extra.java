@@ -14,7 +14,7 @@ public class Exercise05Extra {
         StringBuilder aux = new StringBuilder();
         for (final char letter : s.toCharArray()) {
             if (']' == letter) {
-                while(!stack.isEmpty() && stack.peek() != '[') {
+                while (!stack.isEmpty() && stack.peek() != '[') {
                     aux.append(stack.pop());
                 }
 
@@ -23,7 +23,7 @@ public class Exercise05Extra {
                 }
 
                 final StringBuilder numbers = new StringBuilder();
-                while(!stack.isEmpty() && Character.isDigit(stack.peek())) {
+                while (!stack.isEmpty() && Character.isDigit(stack.peek())) {
                     numbers.append(stack.pop());
                 }
 
@@ -40,7 +40,7 @@ public class Exercise05Extra {
         }
 
         final StringBuilder result = new StringBuilder();
-        while(!stack.isEmpty()) {
+        while (!stack.isEmpty()) {
             char letter = stack.pop();
             if (Character.isLetter(letter)) {
                 result.append(letter);

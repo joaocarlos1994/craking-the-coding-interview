@@ -22,10 +22,8 @@ public class DinnerPlates {
             stacks.add(new Stack<>());
             availableStack.add(stacks.size() - 1);
         }
-
         Stack<Integer> firstStackWithSpace = stacks.get(availableStack.first());
         firstStackWithSpace.push(val);
-
         if (firstStackWithSpace.size() == capacity) {
             availableStack.pollFirst();
         }

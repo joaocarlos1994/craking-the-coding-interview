@@ -3,6 +3,7 @@ package br.com.cracking.coding.stack;
 import java.util.Stack;
 
 class MinStackValue {
+
     int value;
     int minValue;
 
