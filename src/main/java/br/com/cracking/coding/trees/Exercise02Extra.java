@@ -9,7 +9,7 @@ public class Exercise02Extra {
 
     public static void main(String[] args) {
         Exercise02Extra exercise02Extra = new Exercise02Extra();
-        boolean isValid = exercise02Extra.isValidBST(TreeNode.of(new int[] {1,2,3}));
+        boolean isValid = exercise02Extra.isValidBST(TreeNode.ofBinaryTree(new int[] {1,2,3}));
         Assertions.assertTrue(isValid);
     }
 

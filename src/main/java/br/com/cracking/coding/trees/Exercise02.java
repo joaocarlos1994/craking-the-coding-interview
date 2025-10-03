@@ -2,12 +2,12 @@ package br.com.cracking.coding.trees;
 
 import org.junit.jupiter.api.Assertions;
 
-public class Exercise05Extra {
+public class Exercise02 {
 
     public static void main(String[] args) {
 
-        Exercise05Extra exercise05Extra = new Exercise05Extra();
-        TreeNode treeNode = exercise05Extra.sortedArrayToBST(new int[]{-10, -3, 0, 5, 9});
+        Exercise02 exercise02 = new Exercise02();
+        TreeNode treeNode = exercise02.sortedArrayToBST(new int[]{-10, -3, 0, 5, 9});
         Assertions.assertEquals(0, treeNode.val);
     }
 

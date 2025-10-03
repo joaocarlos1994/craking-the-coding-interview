@@ -1,14 +1,10 @@
 package br.com.cracking.coding.trees;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
 public class Exercise03Extra {
 
     public static void main(String[] args) {
         Exercise03Extra exercise03Extra = new Exercise03Extra();
-        exercise03Extra.isSymmetric(TreeNode.of(new int[]{1, 2, 3, 4, 5}));
+        exercise03Extra.isSymmetric(TreeNode.ofBinaryTree(new int[]{1, 2, 3, 4, 5}));
         //Assertions.assertEquals(0, treeNode.val);
     }
 
