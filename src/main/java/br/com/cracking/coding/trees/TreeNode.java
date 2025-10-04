@@ -2,6 +2,7 @@ package br.com.cracking.coding.trees;
 
 public class TreeNode {
     int val;
+    TreeNode parent;
     TreeNode left;
     TreeNode right;
 
@@ -29,9 +30,34 @@ public class TreeNode {
 
         int middlePoint = (left + right) / 2;
         TreeNode treeNode = new TreeNode(nums[middlePoint]);
-        treeNode.left = helper(nums, left, middlePoint - 1);
-        treeNode.right = helper(nums, middlePoint + 1, right);
+        treeNode.setLeftChild(helper(nums, left, middlePoint - 1));
+        treeNode.setRightChild(helper(nums, middlePoint + 1, right));
         return treeNode;
+    }
+
+    public TreeNode find(int d) {
+        if (d == val) {
+            return this;
+        } else if (d <= val) {
+            return left != null ? left.find(d) : null;
+        } else if (d > val) {
+            return right != null ? right.find(d) : null;
+        }
+        return null;
+    }
+
+    private void setLeftChild(TreeNode left) {
+        this.left = left;
+        if (left != null) {
+            left.parent = this;
+        }
+    }
+
+    private void setRightChild(TreeNode right) {
+        this.right = right;
+        if (right != null) {
+            right.parent = this;
+        }
     }
 
     public static TreeNode of(int[] array) {
@@ -44,11 +70,15 @@ public class TreeNode {
             while (!done) {
                 TreeNode r = (TreeNode) queue.element();
                 if (r.left == null) {
-                    r.left = new TreeNode(array[i]);
+                    TreeNode node = new TreeNode(array[i]);
+                    r.left = node;
+                    node.setParent(r.left);
                     i++;
                     queue.add(r.left);
                 } else if (r.right == null) {
-                    r.right = new TreeNode(array[i]);
+                    TreeNode node = new TreeNode(array[i]);
+                    r.right = node;
+                    node.setParent(r.right);
                     i++;
                     queue.add(r.right);
                 } else {
@@ -62,5 +92,9 @@ public class TreeNode {
         } else {
             return null;
         }
+    }
+
+    private void setParent(TreeNode node) {
+        this.parent = node;
     }
 }
